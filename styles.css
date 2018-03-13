@@ -19,6 +19,13 @@
   background-color: #ececec;
 } */
 
+#Count {
+  margin-bottom: 0px !important;
+  line-height: 1.0 !important;
+}
+#body{
+  width: 100%;
+}
 /**/
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
