@@ -18,7 +18,12 @@
 /* #tester0, #tester1 {
   background-color: #ececec;
 } */
-
+.graph-svg-component {
+  background-color: #fff;
+}
+#Cloud {
+  background-color: : #ffffff !important;
+}
 #Count {
   margin-bottom: 0px !important;
   line-height: 1.0 !important;
