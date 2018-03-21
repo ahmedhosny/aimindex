@@ -6,7 +6,7 @@ const modeBar = {
 
 url =
   "https://raw.githubusercontent.com/ahmedhosny/rescience/master/jupyter/" +
-  "combined_180312.csv?token=AIAl_o9uRC4zDr0WoAGNiKT_7oI8w66Eks5asWvFwA%3D%3D";
+  "combined_180312.csv?token=AIAl_kYBOzYBGDi1HkT1IryGdzLxK_dbks5au_YawA%3D%3D";
 loadAndDraw(url);
 
 function loadAndDraw(url) {
