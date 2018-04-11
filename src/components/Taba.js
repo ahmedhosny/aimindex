@@ -74,7 +74,7 @@ class Taba extends Component {
         )}
         {value === 2 && (
           <TabContainer>
-            <Reproducibility />
+            <Reproducibility data={data} />
           </TabContainer>
         )}
         {value === 3 && (

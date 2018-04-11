@@ -1,30 +1,29 @@
-import React from "react";
-import PropTypes from "prop-types";
-import glamorous from "glamorous";
-import Plot from "react-plotly.js";
-import _ from "lodash";
+import React from 'react';
+import PropTypes from 'prop-types';
+import glamorous from 'glamorous';
+import Plot from 'react-plotly.js';
 
 const GPlot = glamorous(Plot)({
-  width: "100%"
+  width: '100%',
 });
 
 class Pie extends React.Component {
   render() {
-    const { data, xAxis, yAxis } = this.props;
+    const {data, xAxis, yAxis} = this.props;
     return (
       <GPlot
         useResizeHandler={true}
         data={[
           {
             x: data,
-            type: "histogram"
-          }
+            type: 'histogram',
+          },
         ]}
         layout={{
           autosize: true,
-          title: "",
-          xaxis: { title: xAxis, nticks: 5 },
-          yaxis: { title: yAxis }
+          title: '',
+          xaxis: {title: xAxis, nticks: 5},
+          yaxis: {title: yAxis},
         }}
       />
     );
@@ -33,6 +32,6 @@ class Pie extends React.Component {
 Pie.propTypes = {
   data: PropTypes.array.isRequired,
   xAxis: PropTypes.string.isRequired,
-  yAxis: PropTypes.string.isRequired
+  yAxis: PropTypes.string.isRequired,
 };
 export default Pie;

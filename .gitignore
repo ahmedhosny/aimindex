@@ -1,8 +1,4 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-/design
-/gdoc
-/jupyter_notebooks
-/libs
 
 # dependencies
 /node_modules

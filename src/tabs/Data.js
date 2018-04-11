@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import Slide from '../components/Slide';
 import Cells from '../components/Cells';
-import {generateRandomList} from '../utils/generateRandomList';
-import {List} from 'immutable';
 
 /**
  * The component
