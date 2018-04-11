@@ -16,7 +16,6 @@ class Reproducibility extends Component {
     const {data} = this.props;
     return (
       <Grid container spacing={24}>
-        <Grid item md={3} />
         <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={<Pie data={data.publicPrivate} />}
@@ -27,7 +26,7 @@ class Reproducibility extends Component {
             }
           />
         </Grid>
-        <Grid item md={3} />
+        <Grid item xs={12} sm={12} md={6} />
       </Grid>
     );
   }

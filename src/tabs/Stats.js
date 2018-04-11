@@ -49,7 +49,6 @@ class Stats extends Component {
     const {ready} = this.state;
     return ready ? (
       <Grid container spacing={24}>
-        <Grid item md={3} />
         <Grid item xs={12} sm={12} md={6}>
           <Slide title={data.count.toString()} text={'manuscripts analyzed.'} />
           <Slide
@@ -92,6 +91,8 @@ class Stats extends Component {
             title={'Anatomy'}
             text={'Distribution across anatomy.'}
           />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={<Pie data={data.types} />}
             title={'Types'}
@@ -157,7 +158,6 @@ class Stats extends Component {
             text={'Architectures vs data types.'}
           />
         </Grid>
-        <Grid item md={3} />
       </Grid>
     ) : (
       <div> loading ... </div>
