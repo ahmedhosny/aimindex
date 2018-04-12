@@ -6,6 +6,7 @@ import Pie from '../components/Pie';
 import Histo from '../components/Histo';
 import Choro from '../components/Choro';
 import Heat from '../components/Heat';
+import Loading from '../components/Loading';
 
 /**
  * The component
@@ -160,7 +161,7 @@ class Stats extends Component {
         </Grid>
       </Grid>
     ) : (
-      <div> loading ... </div>
+      <Loading />
     );
   }
 }
