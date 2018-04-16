@@ -58,4 +58,3 @@ Data.propTypes = {
   raw: PropTypes.array.isRequired,
 };
 export default Data;
-// <Grid item md={1} />

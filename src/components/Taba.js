@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import Tabs, {Tab} from 'material-ui/Tabs';
 import TabContainer from './TabContainer';
+import theme from '../theme.js';
+import Header from './Header';
 //
 import About from '../tabs/About';
-import Stats from '../tabs/Stats';
+import Statistics from '../tabs/Statistics';
 import Reproducibility from '../tabs/Reproducibility';
 import Data from '../tabs/Data';
 import Contribute from '../tabs/Contribute';
@@ -42,21 +44,22 @@ class Taba extends Component {
     const {value} = this.state;
     const {data, raw} = this.props;
     const GAppBar = Glamorous(AppBar)({
-      backgroundColor: '#00796b !important',
+      backgroundColor: theme.darkGreen + ' !important',
       fontSize: '20px !important',
     });
     return (
       <div>
-        <GAppBar position="static">
+        <GAppBar>
+          <Header />
           <Tabs
-            indicatorColor={'#ffab40'}
+            indicatorColor={theme.yellow}
             centered={false}
             fullWidth={true}
             value={value}
             onChange={this.handleChange}
           >
             <Tab label="about" href="#" />
-            <Tab label="stats" href="#" />
+            <Tab label="statistics" href="#" />
             <Tab label="reproducibility" href="#" />
             <Tab label="data" href="#" />
             <Tab label="contribute" href="#" />
@@ -69,7 +72,7 @@ class Taba extends Component {
         )}
         {value === 1 && (
           <TabContainer>
-            <Stats data={data} />
+            <Statistics data={data} />
           </TabContainer>
         )}
         {value === 2 && (

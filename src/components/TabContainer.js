@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import Glamorous from 'glamorous';
 import Typography from 'material-ui/Typography';
 
 /**
@@ -13,11 +14,11 @@ class TabContainer extends Component {
    */
   render() {
     const {children} = this.props;
-    return (
-      <Typography component="div" style={{padding: 8 * 3}}>
-        {children}
-      </Typography>
-    );
+    const GTypography = Glamorous(Typography)({
+      padding: 8 * 3,
+      marginTop: '110px !important',
+    });
+    return <GTypography component="div">{children}</GTypography>;
   }
 }
 TabContainer.propTypes = {

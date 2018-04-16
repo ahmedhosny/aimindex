@@ -10,6 +10,10 @@ const GGrid = glamorous(Grid)({
   textAlign: 'center',
 });
 
+const GCircularProgress = glamorous(CircularProgress)({
+  paddingTop: 100,
+});
+
 /**
  * Loading component
  * @extends React
@@ -23,9 +27,9 @@ class Loading extends React.Component {
     return (
       <Grid container spacing={24}>
         <GGrid item xs={12} sm={12} md={12}>
-          <CircularProgress style={{color: theme.yellow}} size={50} />
+          <GCircularProgress style={{color: theme.yellow}} size={50} />
           <br />
-          <Typography variant=""> generating plots </Typography>
+          <Typography> generating plots </Typography>
         </GGrid>
       </Grid>
     );

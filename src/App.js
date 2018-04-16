@@ -3,7 +3,6 @@ import glamorous from 'glamorous';
 // import axios from 'axios';
 import data from './data';
 //
-import Header from './components/Header';
 import Taba from './components/Taba';
 import {formatData} from './utils';
 
@@ -27,12 +26,12 @@ class App extends Component {
   /**
    * componentWillMount
    */
-  componentWillMount() {
-    // axios.get(url).then((res) => {
-    //   const data = formatData(res.data);
-    //   this.setState({data: data , ready: true});
-    // });
-  }
+  // componentWillMount() {
+  // axios.get(url).then((res) => {
+  //   const data = formatData(res.data);
+  //   this.setState({data: data , ready: true});
+  // });
+  // }
   /**
    * [render description]
    * @return {[type]} [description]
@@ -41,7 +40,6 @@ class App extends Component {
     const {formatedData, rawData, ready} = this.state;
     return ready ? (
       <GApp>
-        <Header />
         <Taba data={formatedData} raw={rawData} />
       </GApp>
     ) : null;

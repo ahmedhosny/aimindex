@@ -26,7 +26,13 @@ class Reproducibility extends Component {
             }
           />
         </Grid>
-        <Grid item xs={12} sm={12} md={6} />
+        <Grid item xs={12} sm={12} md={6}>
+          <Slide
+            plot={<Pie data={data.dataSharing} />}
+            title={'Data sharing'}
+            text={'Data sharing.'}
+          />
+        </Grid>
       </Grid>
     );
   }

@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import glamorous from 'glamorous';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import GithubCircleIcon from 'mdi-react/GithubCircleIcon';
+import theme from '../theme.js';
 
 /**
  * The component
@@ -12,24 +17,24 @@ class Header extends Component {
    */
   render() {
     const GHeader = glamorous.header({
-      backgroundColor: '#009688',
-      height: 90,
-      padding: 20,
-      color: 'white',
-      fontWeight: '300 !mportant',
+      backgroundColor: theme.lightGreen,
     });
-    const GH1 = glamorous.h1({
-      fontWeight: '400',
-      marginBottom: 0,
-    });
-    const GH3 = glamorous.h3({
-      fontWeight: '400',
-      marginTop: 0,
+    const GDiv = glamorous.div({
+      position: 'absolute',
+      right: 20,
     });
     return (
       <GHeader>
-        <GH1>The AIM Index </GH1>
-        <GH3>Tracking AI Research in Medicine</GH3>
+        <Toolbar>
+          <Typography variant="title" color="inherit">
+            Medical Artificial Intelligence Index
+          </Typography>
+          <GDiv>
+            <IconButton aria-haspopup="false" color="inherit">
+              <GithubCircleIcon color={'#fff'} size={32} />
+            </IconButton>
+          </GDiv>
+        </Toolbar>
       </GHeader>
     );
   }
