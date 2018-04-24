@@ -7,7 +7,7 @@ const GPlot = glamorous(Plot)({
   width: '100%',
 });
 
-class Pie extends React.Component {
+class Histo extends React.Component {
   render() {
     const {data, xAxis, yAxis} = this.props;
     return (
@@ -29,9 +29,9 @@ class Pie extends React.Component {
     );
   }
 }
-Pie.propTypes = {
+Histo.propTypes = {
   data: PropTypes.array.isRequired,
   xAxis: PropTypes.string.isRequired,
   yAxis: PropTypes.string.isRequired,
 };
-export default Pie;
+export default Histo;
