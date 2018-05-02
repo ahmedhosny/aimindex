@@ -57,7 +57,7 @@ export function prepareDataForHeatmaps(listToPushTo, listA, listB) {
  */
 export function prepareDataSharing(listToPushTo, listOfEntries) {
   // if none of the above
-  _.max(listOfEntries) === 0 ? listToPushTo.push('data not available?') : null;
+  _.max(listOfEntries) === 0 ? listToPushTo.push('data unavailable') : null;
   ifOne(listToPushTo, listOfEntries[0], 'used public data');
   ifOne(listToPushTo, listOfEntries[1], 'data made available upon request');
   ifOne(listToPushTo, listOfEntries[2], 'data made public');

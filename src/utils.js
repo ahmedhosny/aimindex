@@ -4,6 +4,7 @@ import {
   prepareDataForHeatmaps,
   prepareDataSharing,
 } from './funcs';
+import _ from 'lodash';
 
 /**
  * Creates a new properly formated object for plotting from the jsonList
@@ -35,9 +36,16 @@ export function formatData(jsonList) {
     methods_dataTypes: [],
     // reproducibility - singles
     dataSharing: [],
+    codeSharing: [],
+    codeBasis: [],
+    codeBasisLinks: [],
+    transferLearning: [],
+    crossValidation: [],
   };
   jsonList.map((row, index) => {
+    //
     // stats - singles
+    //
     data.years.push(parseInt(row.year));
     push(data.tasks, [row.task_1, row.task_2]);
     data.domains.push(row.domain);
@@ -51,7 +59,9 @@ export function formatData(jsonList) {
     push(data.conferences, [row.conference]);
     data.publicPrivate.push(row.public == 0 ? 'paywall' : 'open-access');
     push(data.impactFactors, [row.impact_factor]);
+    //
     // stats - doubles
+    //
     prepareDataForHeatmaps(
       data.domains_tasks,
       [row.domain],
@@ -67,25 +77,50 @@ export function formatData(jsonList) {
       [row.method_1, row.method_2, row.method_3],
       [row.data_type]
     );
+    //
     // reproducibility - singles
+    //
     prepareDataSharing(data.dataSharing, [
       row.data_public,
       row.data_upon_request,
       row.data_shared,
     ]);
+    data.codeSharing.push(
+      row.code_public == 1 ? 'code made public' : 'code unavailable'
+    );
+    data.codeBasis.push(
+      row.based_on_1_name == 0 ? 'no code basis' : row.based_on_1_name
+    );
+    row.based_on_1 != 0
+      ? data.codeBasisLinks.push({
+          link: row.based_on_1,
+          name: row.based_on_1_name,
+        })
+      : null;
+    data.transferLearning.push(
+      row.transfer_learning == 0 ? 'end-to-end training' : 'transfer learning'
+    );
+    data.crossValidation.push(
+      row.cross_validation == 0
+        ? 'multiple datasets used'
+        : 'cross validation used'
+    );
   });
+  //
   // post processing
+  //
   data.abstracts = processText(data.abstracts);
   data.jourConf = {
     journals: data.journals.length,
     conferences: data.conferences.length,
   };
+  data.codeBasisLinks = _.uniqBy(data.codeBasisLinks, 'name');
   // sanity check
   {
     data.jourConf.journals + data.jourConf.conferences != data.count
       ? console.log('Error in journal/conference calculation.')
       : null;
   }
-  console.log(data.dataSharing);
+  console.log(data.codeBasisLinks);
   return data;
 }

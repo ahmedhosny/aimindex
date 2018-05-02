@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import glamorous from "glamorous";
-import Card, { CardActions, CardContent, CardMedia } from "material-ui/Card";
-import Button from "material-ui/Button";
-import Typography from "material-ui/Typography";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import glamorous from 'glamorous';
+import Card, {CardActions, CardContent, CardMedia} from 'material-ui/Card';
+import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
 
 const GDiv = glamorous.div({
-  marginBottom: 20
+  marginBottom: 20,
 });
 
 /**
@@ -27,7 +27,7 @@ class Slide extends Component {
             <Typography gutterBottom variant="headline" component="h2">
               {this.props.title}
             </Typography>
-            <Typography component="p">{this.props.text}</Typography>
+            <div>{this.props.text}</div>
           </CardContent>
         </Card>
       </GDiv>
@@ -37,13 +37,16 @@ class Slide extends Component {
 Slide.propTypes = {
   plot: PropTypes.oneOfType([
     PropTypes.element.isRequired,
-    PropTypes.string.isRequired
+    PropTypes.string.isRequired,
   ]),
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.string.isRequired,
+  ]),
 };
 Slide.defaultProps = {
-  plot: ""
+  plot: '',
 };
 export default Slide;
 
