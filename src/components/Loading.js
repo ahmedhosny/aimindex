@@ -27,7 +27,7 @@ class Loading extends React.Component {
     return (
       <Grid container spacing={24}>
         <GGrid item xs={12} sm={12} md={12}>
-          <GCircularProgress style={{color: theme.yellow}} size={50} />
+          <GCircularProgress style={{color: theme.orange}} size={50} />
           <br />
           <Typography> generating plots </Typography>
         </GGrid>

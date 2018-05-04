@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
-import countBy from 'lodash';
+import {countBy} from 'lodash';
 
 const GPlot = glamorous(Plot)({
   width: '100%',

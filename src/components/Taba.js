@@ -52,7 +52,7 @@ class Taba extends Component {
         <GAppBar>
           <Header />
           <Tabs
-            indicatorColor={theme.yellow}
+            indicatorColor={theme.orange}
             centered={false}
             fullWidth={true}
             value={value}

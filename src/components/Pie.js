@@ -2,32 +2,68 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
-import {countBy} from 'lodash';
+import {countBy, sortBy, reverse} from 'lodash';
+import theme from '../theme.js';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
   height: 600,
 });
 
+/**
+ * Pie chart
+ * @extends React
+ */
 class Pie extends React.Component {
+  /**
+   * Renders the pie chart
+   * @return {ReactElement}
+   */
   render() {
     const {data, useCountBy} = this.props;
     const input = useCountBy ? countBy(data) : data;
+    // input looks like {paywall: 29, open-access: 6}
+    // Need to convert to list, then sort and reverse.
+    let inputArray = [];
+    Object.keys(input).map((key, idx) => {
+      inputArray.push({key: key, value: input[key]});
+    });
+    inputArray = reverse(sortBy(inputArray, 'value'));
+    console.log(inputArray);
+
     return (
       <GPlot
         useResizeHandler={true}
         data={[
           {
-            values: Object.values(input),
-            labels: Object.keys(input),
+            values: inputArray.map((entry) => {
+              return entry.value;
+            }),
+            labels: inputArray.map((entry) => {
+              return entry.key;
+            }),
             type: 'pie',
-            text: Object.values(input),
+            hoverinfo: 'label+value+percent',
+            text: inputArray.map((entry) => {
+              return entry.value;
+            }),
+            textposition: 'outside',
             direction: 'clockwise',
             rotation: 0,
+            pull: 0.02,
             hole: 0.3,
+            sort: false,
+            marker: {
+              colors: theme.tealPie,
+              line: {
+                color: theme.orange,
+                width: 0.01,
+              },
+            },
           },
         ]}
         layout={{autosize: true, title: ''}}
+        config={theme.plotlyConfig}
       />
     );
   }
