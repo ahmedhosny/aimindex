@@ -1,6 +1,8 @@
+// colors
 // http://www.material-ui.com/#/customization/colors
-// https://github.com/plotly/plotly.js/blob/master/src/components/modebar/buttons.js
 // https://meyerweb.com/eric/tools/color-blend/#:::hex
+// plotly buttons
+// https://github.com/plotly/plotly.js/blob/master/src/components/modebar/buttons.js
 const theme = {
   background: '#f7fcfc',
   orange: '#ffab40',
@@ -42,7 +44,7 @@ const theme = {
       '#00695C',
       '#007164',
       '#00796B',
-      '#007164',
+      '#008173',
       '#00897B',
       '#009082',
       '#009688',
@@ -59,13 +61,23 @@ const theme = {
     ],
   },
   plotlyConfig: {
-    // displayModeBar: true,
+    displayModeBar: true,
     displaylogo: false,
     modeBarButtonsToRemove: [
       'sendDataToCloud',
       'sendDataToCloud',
       'hoverCompareCartesian',
       'hoverClosestPie',
+      'zoom2d',
+      'pan2d',
+      'lasso2d',
+      'select2d',
+      'zoomIn2d',
+      'zoomOut2d',
+      'autoScale2d',
+      'resetScale2d',
+      'toggleSpikelines',
+      'hoverClosestCartesian',
     ],
   },
 };

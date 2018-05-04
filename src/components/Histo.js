@@ -2,12 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
+import theme from '../theme.js';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
 });
 
+/**
+ * Histogram
+ * @extends React
+ */
 class Histo extends React.Component {
+  /**
+   * Renders a histogram
+   * @return {ReactElement}
+   */
   render() {
     const {data, xAxis, yAxis} = this.props;
     return (
@@ -17,6 +26,9 @@ class Histo extends React.Component {
           {
             x: data,
             type: 'histogram',
+            marker: {
+              color: theme.darkTeal,
+            },
           },
         ]}
         layout={{
@@ -25,6 +37,7 @@ class Histo extends React.Component {
           xaxis: {title: xAxis, nticks: 5},
           yaxis: {title: yAxis},
         }}
+        config={theme.plotlyConfig}
       />
     );
   }
