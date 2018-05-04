@@ -1,6 +1,6 @@
 // http://www.material-ui.com/#/customization/colors
 // https://github.com/plotly/plotly.js/blob/master/src/components/modebar/buttons.js
-//
+// https://meyerweb.com/eric/tools/color-blend/#:::hex
 const theme = {
   background: '#f7fcfc',
   orange: '#ffab40',
@@ -19,18 +19,45 @@ const theme = {
     [0.9, '#00695C'],
     [1, '#004D40'],
   ],
-  tealPie: [
-    '#004D40',
-    '#00695C',
-    '#00796B',
-    '#00897B',
-    '#009688',
-    '#26A69A',
-    '#4DB6AC',
-    '#80CBC4',
-    '#B2DFDB',
-    '#E0F2F1',
-  ],
+  tealPie: {
+    // 2,3 and 4 not used for now.
+    2: ['#004D40', '#E0F2F1'],
+    3: ['#004D40', '#009688', '#E0F2F1'],
+    4: ['#004D40', '#00796B', '#4DB6AC', '#E0F2F1'],
+    10: [
+      '#004D40',
+      '#00695C',
+      '#00796B',
+      '#00897B',
+      '#009688',
+      '#26A69A',
+      '#4DB6AC',
+      '#80CBC4',
+      '#B2DFDB',
+      '#E0F2F1',
+    ],
+    19: [
+      '#004D40',
+      '#005B4E',
+      '#00695C',
+      '#007164',
+      '#00796B',
+      '#007164',
+      '#00897B',
+      '#009082',
+      '#009688',
+      '#139E91',
+      '#26A69A',
+      '#3AAEA3',
+      '#4DB6AC',
+      '#67C1B8',
+      '#80CBC4',
+      '#99D5D0',
+      '#B2DFDB',
+      '#C9E9E6',
+      '#E0F2F1',
+    ],
+  },
   plotlyConfig: {
     // displayModeBar: true,
     displaylogo: false,

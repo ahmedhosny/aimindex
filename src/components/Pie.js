@@ -24,13 +24,13 @@ class Pie extends React.Component {
     const input = useCountBy ? countBy(data) : data;
     // input looks like {paywall: 29, open-access: 6}
     // Need to convert to list, then sort and reverse.
+    // artificial cut at 20 items.
     let inputArray = [];
     Object.keys(input).map((key, idx) => {
       inputArray.push({key: key, value: input[key]});
     });
     inputArray = reverse(sortBy(inputArray, 'value'));
-    console.log(inputArray);
-
+    inputArray = inputArray.length > 20 ? inputArray.slice(0, 19) : inputArray;
     return (
       <GPlot
         useResizeHandler={true}
@@ -54,7 +54,10 @@ class Pie extends React.Component {
             hole: 0.3,
             sort: false,
             marker: {
-              colors: theme.tealPie,
+              colors:
+                inputArray.length > 10
+                  ? theme.tealPie['19']
+                  : theme.tealPie['10'],
               line: {
                 color: theme.orange,
                 width: 0.01,
