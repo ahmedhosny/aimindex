@@ -39,15 +39,9 @@ class Reproducibility extends Component {
           />
           <Slide
             plot={<Pie data={data.codeSharing} />}
-            title={'Code implementation'}
-            text={'Code implementations made available vs no code available'}
-          />
-          <Slide
-            plot={<Pie data={data.transferLearning} />}
-            title={'Transfer Learning'}
+            title={'Code sharing'}
             text={
-              'Transfer learning, or using pre-trained networks on other data\
-              sets, is often utilized when dealing with scarce data.'
+              'Code sharing. Implementations made available vs no code available'
             }
           />
           <Slide
@@ -75,22 +69,32 @@ class Reproducibility extends Component {
             title={'impact factors vs code sharing'}
             text={'impact factors vs code sharing - journals only.'}
           />
+          <Slide
+            plot={<Pie data={data.transferLearning} />}
+            title={'Transfer Learning'}
+            text={
+              'Transfer learning, or using pre-trained networks on other data\
+              sets, is often utilized when dealing with scarce data.'
+            }
+          />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.domains_transferLearning.x}
+                yData={data.domains_transferLearning.y}
+                xAxis={'domains'}
+                yAxis={'transfer learning'}
+              />
+            }
+            title={'domains vs transfer learning'}
+            text={'domains vs transfer learning'}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={<Pie data={data.dataSharing} />}
             title={'Data sharing'}
             text={'Data sharing.'}
-          />
-          <Slide
-            plot={<Pie data={data.codeBasis} />}
-            title={'Code basis'}
-            text={<div>Code basis. Links to these: {codeBasisLinks}</div>}
-          />
-          <Slide
-            plot={<Pie data={data.crossValidation} />}
-            title={'Cross validation'}
-            text={'Cross validation within datasets.'}
           />
           <Slide
             plot={
@@ -116,6 +120,28 @@ class Reproducibility extends Component {
             }
             title={'impactFactors vs data sharing'}
             text={'impactFactors vs data sharing'}
+          />
+          <Slide
+            plot={<Pie data={data.codeBasis} />}
+            title={'Code basis'}
+            text={<div>Code basis. Links to these: {codeBasisLinks}</div>}
+          />
+          <Slide
+            plot={<Pie data={data.crossValidation} />}
+            title={'Cross validation'}
+            text={'Cross validation within datasets.'}
+          />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.domains_crossValidation.x}
+                yData={data.domains_crossValidation.y}
+                xAxis={'domains'}
+                yAxis={'cross validation'}
+              />
+            }
+            title={'domains vs cross validation'}
+            text={'domains vs cross validation'}
           />
         </Grid>
       </Grid>

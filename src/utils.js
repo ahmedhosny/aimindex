@@ -60,6 +60,14 @@ export function formatData(jsonList) {
       x: [],
       y: [],
     },
+    domains_transferLearning: {
+      x: [],
+      y: [],
+    },
+    domains_crossValidation: {
+      x: [],
+      y: [],
+    },
   };
   jsonList.map((row, index) => {
     //
@@ -117,14 +125,14 @@ export function formatData(jsonList) {
           name: row.based_on_1_name,
         })
       : null;
-    data.transferLearning.push(
-      row.transfer_learning == 0 ? 'end-to-end training' : 'transfer learning'
-    );
-    data.crossValidation.push(
+    let transferLearning =
+      row.transfer_learning == 0 ? 'end-to-end training' : 'transfer learning';
+    data.transferLearning.push(transferLearning);
+    let crossValidation =
       row.cross_validation == 0
         ? 'multiple datasets used'
-        : 'cross validation used'
-    );
+        : 'cross validation used';
+    data.crossValidation.push(crossValidation);
     //
     // reproducibility - doubles
     //
@@ -148,6 +156,16 @@ export function formatData(jsonList) {
       [row.impact_factor],
       dataSharingMiniList
     );
+    prepareDataForHisto2d(
+      data.domains_transferLearning,
+      [row.domain],
+      [transferLearning]
+    );
+    prepareDataForHisto2d(
+      data.domains_crossValidation,
+      [row.domain],
+      [crossValidation]
+    );
   });
   //
   // post processing
@@ -164,6 +182,5 @@ export function formatData(jsonList) {
       ? console.log('Error in journal/conference calculation.')
       : null;
   }
-  console.log(data.impactFactors_dataSharing);
   return data;
 }
