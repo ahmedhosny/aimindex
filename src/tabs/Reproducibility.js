@@ -50,6 +50,31 @@ class Reproducibility extends Component {
               sets, is often utilized when dealing with scarce data.'
             }
           />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.countries_codeSharing.x}
+                yData={data.countries_codeSharing.y}
+                xAxis={'countries'}
+                yAxis={'code sharing'}
+              />
+            }
+            title={'countries vs code sharing'}
+            text={'countries vs code sharing'}
+          />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.impactFactors_codeSharing.x}
+                yData={data.impactFactors_codeSharing.y}
+                xAxis={'impact factors'}
+                yAxis={'code sharing'}
+                autobinx={false}
+              />
+            }
+            title={'impact factors vs code sharing'}
+            text={'impact factors vs code sharing - journals only.'}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
@@ -70,14 +95,27 @@ class Reproducibility extends Component {
           <Slide
             plot={
               <Histo2d
-                xData={data.countries_codeSharing.x}
-                yData={data.countries_codeSharing.y}
+                xData={data.countries_dataSharing.x}
+                yData={data.countries_dataSharing.y}
                 xAxis={'countries'}
-                yAxis={'code sharing'}
+                yAxis={'data sharing'}
               />
             }
-            title={'countries vs code sharing'}
-            text={'countries vs code sharing'}
+            title={'countries vs data sharing'}
+            text={'countries vs data sharing'}
+          />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.impactFactors_dataSharing.x}
+                yData={data.impactFactors_dataSharing.y}
+                xAxis={'impactFactors'}
+                yAxis={'data sharing'}
+                autobinx={false}
+              />
+            }
+            title={'impactFactors vs data sharing'}
+            text={'impactFactors vs data sharing'}
           />
         </Grid>
       </Grid>

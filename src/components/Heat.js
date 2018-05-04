@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
-import _ from 'lodash';
+import {countBy} from 'lodash';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
@@ -62,9 +62,9 @@ class Heat extends React.Component {
     const colorscaleValue = [[0, 'rgb(0,150,136)'], [1, '#001f3f']];
     const {data, xLabels, yLabels, xAxis, yAxis} = this.props;
     // get labels
-    const xValues = Object.keys(_.countBy(xLabels));
-    const yValues = Object.keys(_.countBy(yLabels));
-    let input = _.countBy(data);
+    const xValues = Object.keys(countBy(xLabels));
+    const yValues = Object.keys(countBy(yLabels));
+    let input = countBy(data);
     // make zVal
     let zValues = [];
     // loop through Y

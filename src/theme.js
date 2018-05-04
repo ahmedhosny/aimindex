@@ -4,7 +4,7 @@ const theme = {
   lightTeal: '#009688',
   darkTeal: '#00796b',
   tealScale: [
-    [0, '#fff'],
+    [0, '#eeeeee'],
     [0.000000000001, '#E0F2F1'],
     [0.2, '#B2DFDB'],
     [0.3, '#80CBC4'],

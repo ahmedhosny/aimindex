@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
 import theme from '../theme.js';
+import {max, ceil} from 'lodash';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
@@ -18,8 +19,7 @@ class Histo2d extends React.Component {
    * @return {ReactElement} Histo2d
    */
   render() {
-    const {xData, yData, xAxis, yAxis} = this.props;
-
+    const {xData, yData, xAxis, yAxis, autobinx} = this.props;
     return (
       <GPlot
         useResizeHandler={true}
@@ -30,11 +30,19 @@ class Histo2d extends React.Component {
             type: 'histogram2d',
             colorscale: theme.tealScale,
             showscale: false,
+            autobinx: autobinx,
+            xbins: autobinx
+              ? {}
+              : {
+                  start: 0,
+                  end: ceil(max(xData)),
+                  size: 1,
+                },
           },
         ]}
         layout={{
           margin: {
-            l: 120,
+            l: 140,
             r: 50,
             b: 120,
             t: 50,
@@ -62,5 +70,9 @@ Histo2d.propTypes = {
   yData: PropTypes.array.isRequired,
   xAxis: PropTypes.string.isRequired,
   yAxis: PropTypes.string.isRequired,
+  autobinx: PropTypes.bool.isRequired,
+};
+Histo2d.defaultProps = {
+  autobinx: true,
 };
 export default Histo2d;

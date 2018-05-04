@@ -69,15 +69,17 @@ export function prepareDataForHisto2d(listToPushTo, listA, listB) {
 
 /**
  * For data sharing only - pushes one or more of the four labels
- * @param  {array} listToPushTo  array to push to
  * @param  {array} listOfEntries [data_public, data_upon_request, data_shared]
+ * @return {array} miniList a small lsit to be concatenated to the bigger list
  */
-export function prepareDataSharing(listToPushTo, listOfEntries) {
+export function prepareDataSharing(listOfEntries) {
+  let miniList = [];
   // if none of the above
-  _.max(listOfEntries) === 0 ? listToPushTo.push('data unavailable') : null;
-  ifOne(listToPushTo, listOfEntries[0], 'used public data');
-  ifOne(listToPushTo, listOfEntries[1], 'data made available upon request');
-  ifOne(listToPushTo, listOfEntries[2], 'data made public');
+  _.max(listOfEntries) === 0 ? miniList.push('data unavailable') : null;
+  ifOne(miniList, listOfEntries[0], 'used public data');
+  ifOne(miniList, listOfEntries[1], 'data made available upon request');
+  ifOne(miniList, listOfEntries[2], 'data made public');
+  return miniList;
 }
 
 /**

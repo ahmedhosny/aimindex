@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
-import _ from 'lodash';
+import countBy from 'lodash';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
@@ -11,7 +11,7 @@ const GPlot = glamorous(Plot)({
 class Choro extends React.Component {
   render() {
     const {data} = this.props;
-    const input = _.countBy(data);
+    const input = countBy(data);
     return (
       <GPlot
         useResizeHandler={true}

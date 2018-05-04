@@ -43,8 +43,20 @@ export function formatData(jsonList) {
     transferLearning: [],
     crossValidation: [],
     // reproducibility - doubles
+    // // first time use of histo 2d (simpler than heat)
     countries_codeSharing: {
-      // first time use of histo 2d (simpler than heat)
+      x: [],
+      y: [],
+    },
+    countries_dataSharing: {
+      x: [],
+      y: [],
+    },
+    impactFactors_codeSharing: {
+      x: [],
+      y: [],
+    },
+    impactFactors_dataSharing: {
       x: [],
       y: [],
     },
@@ -87,11 +99,12 @@ export function formatData(jsonList) {
     //
     // reproducibility - singles
     //
-    prepareDataSharing(data.dataSharing, [
+    let dataSharingMiniList = prepareDataSharing([
       row.data_public,
       row.data_upon_request,
       row.data_shared,
     ]);
+    data.dataSharing = [...data.dataSharing, ...dataSharingMiniList];
     data.codeSharing.push(
       row.code_public == 1 ? 'code made public' : 'code unavailable'
     );
@@ -120,6 +133,21 @@ export function formatData(jsonList) {
       [row.country_1, row.country_2, row.country_3],
       [row.code_public == 1 ? 'code made public' : 'code unavailable']
     );
+    prepareDataForHisto2d(
+      data.countries_dataSharing,
+      [row.country_1, row.country_2, row.country_3],
+      dataSharingMiniList
+    );
+    prepareDataForHisto2d(
+      data.impactFactors_codeSharing,
+      [row.impact_factor],
+      [row.code_public == 1 ? 'code made public' : 'code unavailable']
+    );
+    prepareDataForHisto2d(
+      data.impactFactors_dataSharing,
+      [row.impact_factor],
+      dataSharingMiniList
+    );
   });
   //
   // post processing
@@ -136,7 +164,6 @@ export function formatData(jsonList) {
       ? console.log('Error in journal/conference calculation.')
       : null;
   }
-  console.log(data.codeBasisLinks);
-  console.log(data.countries_codeSharing);
+  console.log(data.impactFactors_dataSharing);
   return data;
 }
