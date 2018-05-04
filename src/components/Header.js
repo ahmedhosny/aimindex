@@ -17,7 +17,7 @@ class Header extends Component {
    */
   render() {
     const GHeader = glamorous.header({
-      backgroundColor: theme.lightGreen,
+      backgroundColor: theme.lightTeal,
     });
     const GDiv = glamorous.div({
       position: 'absolute',

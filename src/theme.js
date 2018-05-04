@@ -23,9 +23,10 @@ const theme = {
   ],
   tealList: {
     // 2,3 and 4 not used for now.
-    2: ['#004D40', '#E0F2F1'],
-    3: ['#004D40', '#009688', '#E0F2F1'],
-    4: ['#004D40', '#00796B', '#4DB6AC', '#E0F2F1'],
+    2: ['#004D40', '#80CBC4'],
+    3: ['#004D40', '#00897B', '#4DB6AC'],
+    4: ['#004D40', '#00796B', '#009688', '#4DB6AC'],
+    // 10 is the original from material design
     10: [
       '#004D40',
       '#00695C',
