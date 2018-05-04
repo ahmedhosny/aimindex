@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
+import theme from '../theme.js';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
@@ -18,6 +19,7 @@ class Histo2d extends React.Component {
    */
   render() {
     const {xData, yData, xAxis, yAxis} = this.props;
+
     return (
       <GPlot
         useResizeHandler={true}
@@ -26,6 +28,8 @@ class Histo2d extends React.Component {
             x: xData,
             y: yData,
             type: 'histogram2d',
+            colorscale: theme.tealScale,
+            showscale: false,
           },
         ]}
         layout={{

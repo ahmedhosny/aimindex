@@ -44,7 +44,7 @@ class Taba extends Component {
     const {value} = this.state;
     const {data, raw} = this.props;
     const GAppBar = Glamorous(AppBar)({
-      backgroundColor: theme.darkGreen + ' !important',
+      backgroundColor: theme.darkTeal + ' !important',
       fontSize: '20px !important',
     });
     return (
