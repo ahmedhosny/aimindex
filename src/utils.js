@@ -3,6 +3,7 @@ import {
   push,
   prepareDataForHeatmaps,
   prepareDataSharing,
+  prepareDataForHisto2d,
 } from './funcs';
 import _ from 'lodash';
 
@@ -41,6 +42,12 @@ export function formatData(jsonList) {
     codeBasisLinks: [],
     transferLearning: [],
     crossValidation: [],
+    // reproducibility - doubles
+    countries_codeSharing: {
+      // first time use of histo 2d (simpler than heat)
+      x: [],
+      y: [],
+    },
   };
   jsonList.map((row, index) => {
     //
@@ -105,6 +112,14 @@ export function formatData(jsonList) {
         ? 'multiple datasets used'
         : 'cross validation used'
     );
+    //
+    // reproducibility - doubles
+    //
+    prepareDataForHisto2d(
+      data.countries_codeSharing,
+      [row.country_1, row.country_2, row.country_3],
+      [row.code_public == 1 ? 'code made public' : 'code unavailable']
+    );
   });
   //
   // post processing
@@ -122,5 +137,6 @@ export function formatData(jsonList) {
       : null;
   }
   console.log(data.codeBasisLinks);
+  console.log(data.countries_codeSharing);
   return data;
 }

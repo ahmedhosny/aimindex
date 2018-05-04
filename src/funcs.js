@@ -51,6 +51,23 @@ export function prepareDataForHeatmaps(listToPushTo, listA, listB) {
 }
 
 /**
+ * Creates pairs from non-zero items to draw the heatmaps
+ * @param  {array} listToPushTo array to push to
+ * @param  {array} listA        Array of x axis - can have multiple entries
+ * @param  {array} listB        Array of y axis - can have multiple entries
+ */
+export function prepareDataForHisto2d(listToPushTo, listA, listB) {
+  listA.map((a, idx) => {
+    listB.map((b, idx) => {
+      if ((a.toString() !== '0') & (b.toString() !== '0')) {
+        listToPushTo.x.push(a);
+        listToPushTo.y.push(b);
+      }
+    });
+  });
+}
+
+/**
  * For data sharing only - pushes one or more of the four labels
  * @param  {array} listToPushTo  array to push to
  * @param  {array} listOfEntries [data_public, data_upon_request, data_shared]

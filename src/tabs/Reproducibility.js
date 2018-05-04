@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import Slide from '../components/Slide';
 import Pie from '../components/Pie';
+import Histo2d from '../components/Histo2d';
+
 /**
  * The component
  * @type {Object}
@@ -64,6 +66,18 @@ class Reproducibility extends Component {
             plot={<Pie data={data.crossValidation} />}
             title={'Cross validation'}
             text={'Cross validation within datasets.'}
+          />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.countries_codeSharing.x}
+                yData={data.countries_codeSharing.y}
+                xAxis={'countries'}
+                yAxis={'code sharing'}
+              />
+            }
+            title={'countries vs code sharing'}
+            text={'countries vs code sharing'}
           />
         </Grid>
       </Grid>
