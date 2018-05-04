@@ -56,8 +56,8 @@ class Pie extends React.Component {
             marker: {
               colors:
                 inputArray.length > 10
-                  ? theme.tealPie['19']
-                  : theme.tealPie['10'],
+                  ? theme.tealList['19']
+                  : theme.tealList['10'],
               line: {
                 color: theme.orange,
                 width: 0.01,

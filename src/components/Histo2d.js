@@ -61,6 +61,7 @@ class Histo2d extends React.Component {
             title: yAxis,
           },
         }}
+        config={theme.plotlyConfig}
       />
     );
   }

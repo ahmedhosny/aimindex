@@ -32,12 +32,11 @@ class Stats extends Component {
     //   const data = formatData(res.data);
     //   this.setState({data: data , ready: true});
     // });
-    console.log(' stats willMount');
     setTimeout(
       function() {
         this.setState({ready: true});
       }.bind(this),
-      1000
+      800
     );
   }
 

@@ -21,7 +21,7 @@ const theme = {
     [0.9, '#00695C'],
     [1, '#004D40'],
   ],
-  tealPie: {
+  tealList: {
     // 2,3 and 4 not used for now.
     2: ['#004D40', '#E0F2F1'],
     3: ['#004D40', '#009688', '#E0F2F1'],
@@ -78,6 +78,9 @@ const theme = {
       'resetScale2d',
       'toggleSpikelines',
       'hoverClosestCartesian',
+      'zoomInGeo',
+      'zoomOutGeo',
+      'hoverClosestGeo',
     ],
   },
 };

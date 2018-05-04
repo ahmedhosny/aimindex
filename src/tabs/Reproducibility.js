@@ -4,12 +4,35 @@ import Grid from 'material-ui/Grid';
 import Slide from '../components/Slide';
 import Pie from '../components/Pie';
 import Histo2d from '../components/Histo2d';
+import Loading from '../components/Loading';
 
 /**
  * The component
  * @type {Object}
  */
 class Reproducibility extends Component {
+  /**
+   * Constructor
+   * @param  {object} props data
+   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      ready: false,
+    };
+  }
+
+  /**
+   * componentWillMount
+   */
+  componentWillMount() {
+    setTimeout(
+      function() {
+        this.setState({ready: true});
+      }.bind(this),
+      300
+    );
+  }
   /**
    * Render
    * @return {ReactElement}
@@ -26,7 +49,8 @@ class Reproducibility extends Component {
         </div>
       );
     });
-    return (
+    const {ready} = this.state;
+    return ready ? (
       <Grid container spacing={24}>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
@@ -145,6 +169,8 @@ class Reproducibility extends Component {
           />
         </Grid>
       </Grid>
+    ) : (
+      <Loading />
     );
   }
 }
