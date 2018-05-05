@@ -45,11 +45,13 @@ class Pie extends React.Component {
             type: 'pie',
             hoverinfo: 'label+value+percent',
             text: inputArray.map((entry) => {
-              return entry.value;
+              return entry.key + ' (' + entry.value.toString() + ')';
             }),
             textposition: 'outside',
             direction: 'clockwise',
             rotation: 0,
+            // textinfo: 'label+value+percent',
+            showlegend: false,
             pull: 0.02,
             hole: 0.3,
             sort: false,
