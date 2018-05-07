@@ -3,6 +3,7 @@ import glamorous from 'glamorous';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
+import logo from '../logo.svg';
 import GithubCircleIcon from 'mdi-react/GithubCircleIcon';
 import theme from '../theme.js';
 
@@ -23,9 +24,14 @@ class Header extends Component {
       position: 'absolute',
       right: 20,
     });
+    const GImg = glamorous.img({
+      paddingRight: 10,
+      width: 40,
+    });
     return (
       <GHeader>
         <Toolbar>
+          <GImg src={logo} alt="logo" />
           <Typography variant="title" color="inherit">
             Medical Artificial Intelligence Index
           </Typography>
