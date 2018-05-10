@@ -26,12 +26,17 @@ class App extends Component {
   /**
    * componentWillMount
    */
-  // componentWillMount() {
-  // axios.get(url).then((res) => {
-  //   const data = formatData(res.data);
-  //   this.setState({data: data , ready: true});
-  // });
-  // }
+  componentWillMount() {
+    // axios
+    //   .get(
+    //     'https://docs.google.com/document/d/1KWfmWs1HJW3pjEFHia14Y73eYD3IBZUibRTstWA8itg/edit?usp=sharing'
+    //   )
+    //   .then((res) => {
+    //     console.log(res.request.responseText);
+    //     // const data = formatData(res.data);
+    //     // this.setState({data: data , ready: true});
+    //   });
+  }
   /**
    * [render description]
    * @return {[type]} [description]
