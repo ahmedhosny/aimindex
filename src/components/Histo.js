@@ -4,10 +4,6 @@ import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
 import theme from '../theme.js';
 
-const GPlot = glamorous(Plot)({
-  width: '100%',
-});
-
 /**
  * Histogram
  * @extends React
@@ -19,6 +15,9 @@ class Histo extends React.Component {
    */
   render() {
     const {data, xAxis, yAxis} = this.props;
+    const GPlot = glamorous(Plot)({
+      width: '100%',
+    });
     return (
       <GPlot
         useResizeHandler={true}
