@@ -50,7 +50,10 @@ class Stats extends Component {
     return ready ? (
       <Grid container spacing={24}>
         <Grid item xs={12} sm={12} md={6}>
-          <Slide title={data.count.toString()} text={'manuscripts analyzed.'} />
+          <Slide
+            title={data.count.toString()}
+            text={'manuscripts analyzed so far.'}
+          />
           <Slide
             plot={
               <Histo data={data.years} xAxis={'Years'} yAxis={'Frequency'} />
