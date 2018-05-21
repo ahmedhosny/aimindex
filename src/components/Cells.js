@@ -24,7 +24,7 @@ class Cells extends React.PureComponent {
       overscanColumnCount: 0,
       overscanRowCount: 5,
       rowHeight: 40,
-      rowCount: 35,
+      rowCount: 108, // hardcoded
       leftHeaderWidth: columnWidths[0],
     };
 
