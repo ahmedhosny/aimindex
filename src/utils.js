@@ -174,13 +174,14 @@ export function formatData(jsonList) {
   data.jourConf = {
     journals: data.journals.length,
     conferences: data.conferences.length,
+    preprint: data.count - (data.journals.length + data.conferences.length),
   };
   data.codeBasisLinks = _.uniqBy(data.codeBasisLinks, 'name');
   // sanity check
-  {
-    data.jourConf.journals + data.jourConf.conferences != data.count
-      ? console.log('Error in journal/conference calculation.')
-      : null;
-  }
+  // {
+  //   data.jourConf.journals + data.jourConf.conferences != data.count
+  //     ? console.log('Error in journal/conference calculation.')
+  //     : null;
+  // }
   return data;
 }
