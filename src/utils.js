@@ -32,9 +32,18 @@ export function formatData(jsonList) {
     publicPrivate: [],
     impactFactors: [],
     // stats - doubles
-    domains_tasks: [],
-    domains_architectures: [],
-    methods_dataTypes: [],
+    domains_tasks: {
+      x: [],
+      y: [],
+    },
+    domains_architectures: {
+      x: [],
+      y: [],
+    },
+    methods_dataTypes: {
+      x: [],
+      y: [],
+    },
     // reproducibility - singles
     dataSharing: [],
     codeSharing: [],
@@ -89,17 +98,17 @@ export function formatData(jsonList) {
     //
     // stats - doubles
     //
-    prepareDataForHeatmaps(
+    prepareDataForHisto2d(
       data.domains_tasks,
       [row.domain],
       [row.task_1, row.task_2]
     );
-    prepareDataForHeatmaps(
+    prepareDataForHisto2d(
       data.domains_architectures,
       [row.domain],
       [row.method_1, row.method_2, row.method_3]
     );
-    prepareDataForHeatmaps(
+    prepareDataForHisto2d(
       data.methods_dataTypes,
       [row.method_1, row.method_2, row.method_3],
       [row.data_type]

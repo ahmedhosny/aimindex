@@ -22,6 +22,16 @@ class Pie extends React.Component {
   render() {
     const {data, useCountBy} = this.props;
     const input = useCountBy ? countBy(data) : data;
+    // get rid of all 1's
+    let ones = 0;
+    Object.keys(input).map((key, idx) => {
+      if (input[key] == 1) {
+        delete input[key];
+        ones = ones + 1;
+      }
+    });
+    // input['others'] = ones;
+    // console.log(ones);
     // input looks like {paywall: 29, open-access: 6}
     // Need to convert to list, then sort and reverse.
     // artificial cut at 20 items.
@@ -30,7 +40,10 @@ class Pie extends React.Component {
       inputArray.push({key: key, value: input[key]});
     });
     inputArray = reverse(sortBy(inputArray, 'value'));
-    inputArray = inputArray.length > 20 ? inputArray.slice(0, 19) : inputArray;
+    // inputArray = inputArray.length > 20 ? inputArray.slice(0, 19) : inputArray;
+
+    // add other to the end
+    ones > 0 ? inputArray.push({key: 'others', value: ones}) : null;
     return (
       <GPlot
         useResizeHandler={true}

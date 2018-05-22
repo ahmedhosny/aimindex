@@ -5,8 +5,8 @@ import Slide from '../components/Slide';
 import Pie from '../components/Pie';
 import Histo from '../components/Histo';
 import Choro from '../components/Choro';
-import Heat from '../components/Heat';
 import Loading from '../components/Loading';
+import Histo2d from '../components/Histo2d';
 
 /**
  * The component
@@ -118,14 +118,15 @@ class Stats extends Component {
             text={'Distribution of impact factors across journals.'}
           />
           <Slide plot={<Choro data={data.countries} />} title={''} text={''} />
+
           <Slide
             plot={
-              <Heat
-                data={data.domains_tasks}
-                xLabels={data.domains}
-                yLabels={data.tasks}
+              <Histo2d
+                xData={data.domains_tasks.x}
+                yData={data.domains_tasks.y}
                 xAxis={'Domains'}
                 yAxis={'Tasks'}
+                autobinx={false}
               />
             }
             title={'Domains vs Tasks'}
@@ -133,12 +134,12 @@ class Stats extends Component {
           />
           <Slide
             plot={
-              <Heat
-                data={data.domains_architectures}
-                xLabels={data.domains}
-                yLabels={data.architectures}
+              <Histo2d
+                xData={data.domains_architectures.x}
+                yData={data.domains_architectures.y}
                 xAxis={'Domains'}
                 yAxis={'Architectures'}
+                autobinx={false}
               />
             }
             title={'Domains vs Architectures'}
@@ -149,12 +150,12 @@ class Stats extends Component {
           />
           <Slide
             plot={
-              <Heat
-                data={data.methods_dataTypes}
-                xLabels={data.architectures}
-                yLabels={data.types}
+              <Histo2d
+                xData={data.methods_dataTypes.x}
+                yData={data.methods_dataTypes.y}
                 xAxis={'Architectures'}
                 yAxis={'Data types'}
+                autobinx={false}
               />
             }
             title={'Architectures vs data types'}

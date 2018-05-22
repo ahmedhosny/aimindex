@@ -7,6 +7,7 @@ import {max, ceil} from 'lodash';
 
 const GPlot = glamorous(Plot)({
   width: '100%',
+  height: 700,
 });
 
 /**
@@ -28,8 +29,12 @@ class Histo2d extends React.Component {
             x: xData,
             y: yData,
             type: 'histogram2d',
+            histnorm: '',
             colorscale: theme.tealScale,
-            showscale: false,
+            showscale: true,
+            colorbar: {
+              thickness: 10,
+            },
             autobinx: autobinx,
             xbins: autobinx
               ? {}

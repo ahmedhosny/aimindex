@@ -40,15 +40,15 @@ export function push(listToPushTo, listOfEntries) {
  * @param  {array} listA        Array of x axis - can have multiple entries
  * @param  {array} listB        Array of y axis - can have multiple entries
  */
-export function prepareDataForHeatmaps(listToPushTo, listA, listB) {
-  listA.map((a, idx) => {
-    listB.map((b, idx) => {
-      if ((a.toString() !== '0') & (b.toString() !== '0')) {
-        listToPushTo.push(a + '_' + b);
-      }
-    });
-  });
-}
+// export function prepareDataForHeatmaps(listToPushTo, listA, listB) {
+//   listA.map((a, idx) => {
+//     listB.map((b, idx) => {
+//       if ((a.toString() !== '0') & (b.toString() !== '0')) {
+//         listToPushTo.push(a + '_' + b);
+//       }
+//     });
+//   });
+// }
 
 /**
  * Creates pairs from non-zero items to draw the heatmaps
