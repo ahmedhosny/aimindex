@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
 import Plot from 'react-plotly.js';
 import theme from '../theme.js';
-import {max, ceil} from 'lodash';
-
-const GPlot = glamorous(Plot)({
-  width: '100%',
-  height: 700,
-});
+import {max, ceil, countBy} from 'lodash';
 
 /**
  * Histogram2d - https://plot.ly/javascript/2D-Histogram/
@@ -20,7 +15,11 @@ class Histo2d extends React.Component {
    * @return {ReactElement} Histo2d
    */
   render() {
-    const {xData, yData, xAxis, yAxis, autobinx} = this.props;
+    const {xData, yData, xAxis, yAxis, autobinx, height} = this.props;
+    const GPlot = glamorous(Plot)({
+      width: '100%',
+      height: height,
+    });
     return (
       <GPlot
         useResizeHandler={true}
@@ -35,6 +34,7 @@ class Histo2d extends React.Component {
             colorbar: {
               thickness: 10,
             },
+            // for continuous values (such as impact factor)
             autobinx: autobinx,
             xbins: autobinx
               ? {}
@@ -61,6 +61,8 @@ class Histo2d extends React.Component {
             title: xAxis,
           },
           yaxis: {
+            tickmode: 'auto',
+            nticks: 100, // forces all ticks to appear
             ticks: '',
             ticksuffix: ' ',
             title: yAxis,
@@ -77,8 +79,13 @@ Histo2d.propTypes = {
   xAxis: PropTypes.string.isRequired,
   yAxis: PropTypes.string.isRequired,
   autobinx: PropTypes.bool.isRequired,
+  height: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired,
+  ]),
 };
 Histo2d.defaultProps = {
   autobinx: true,
+  height: '',
 };
 export default Histo2d;

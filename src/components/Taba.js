@@ -24,7 +24,7 @@ class Taba extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 1,
+      value: 0,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -62,7 +62,6 @@ class Taba extends Component {
             <Tab label="statistics" href="#" />
             <Tab label="reproducibility" href="#" />
             <Tab label="data" href="#" />
-            <Tab label="contribute" href="#" />
           </Tabs>
         </GAppBar>
         {value === 0 && (
@@ -85,11 +84,6 @@ class Taba extends Component {
             <Data data={data} raw={raw} />
           </TabContainer>
         )}
-        {value === 4 && (
-          <TabContainer>
-            <Contribute />
-          </TabContainer>
-        )}
       </div>
     );
   }
@@ -99,3 +93,13 @@ Taba.propTypes = {
   raw: PropTypes.array.isRequired,
 };
 export default Taba;
+
+// <Tab label="contribute" href="#" />
+//
+// {
+//   value === 4 && (
+//     <TabContainer>
+//       <Contribute />
+//     </TabContainer>
+//   );
+// }

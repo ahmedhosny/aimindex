@@ -36,14 +36,6 @@ class Data extends Component {
       <div>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={12} md={12}>
-            <Slide
-              title={data.count.toString()}
-              text={
-                'Every effort has been made to correctly categorize these\
-              research papers. If you have reason to believe that the\
-              infomation represented here is incorrect, please let us know.'
-              }
-            />
             <div>
               <Cells data={tableData} />
             </div>
@@ -58,3 +50,12 @@ Data.propTypes = {
   raw: PropTypes.array.isRequired,
 };
 export default Data;
+
+// <Slide
+//   title={data.count.toString()}
+//   text={
+//     'Every effort has been made to correctly categorize these\
+//   research papers. If you have reason to believe that the\
+//   infomation represented here is incorrect, please let us know.'
+//   }
+// />

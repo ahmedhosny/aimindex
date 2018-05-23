@@ -261,14 +261,14 @@ class About extends Component {
                     <Grid item xs={12} sm={12} md={4}>
                       <GImg src={'img/dfci.png'} />
                     </Grid>
-                    <Grid item md={2} />
-                    <Grid item xs={12} sm={12} md={4}>
+                    <Grid item md={1} />
+                    <Grid item xs={12} sm={12} md={5}>
                       <GImg src={'img/nih.png'} />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={4}>
+                    <Grid item xs={12} sm={12} md={5}>
                       <GImg src={'img/nci.png'} />
                     </Grid>
-                    <Grid item md={2} />
+                    <Grid item md={1} />
                   </GGrid>
                 </div>
               }
@@ -279,8 +279,11 @@ class About extends Component {
               content={
                 <div>
                   We are in our early stages and we invite the community to join
-                  the effort and submit feedback. The effort would not have been
-                  possible without open-source software projects including
+                  the effort and{' '}
+                  <a target="_blank" href="mailto:info@medicalindex.ai">
+                    submit feedback
+                  </a>. The effort would not have been possible without
+                  open-source software projects including
                   <Link
                     content="React"
                     url="https://reactjs.org/"

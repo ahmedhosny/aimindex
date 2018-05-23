@@ -156,6 +156,7 @@ class Stats extends Component {
                 xAxis={'Architectures'}
                 yAxis={'Data types'}
                 autobinx={false}
+                height={600}
               />
             }
             title={'Architectures vs data types'}

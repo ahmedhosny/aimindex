@@ -35,11 +35,6 @@ class Header extends Component {
           <Typography variant="title" color="inherit">
             Medical Artificial Intelligence Index
           </Typography>
-          <GDiv>
-            <IconButton aria-haspopup="false" color="inherit">
-              <GithubCircleIcon color={'#fff'} size={32} />
-            </IconButton>
-          </GDiv>
         </Toolbar>
       </GHeader>
     );
@@ -47,3 +42,9 @@ class Header extends Component {
 }
 Header.propTypes = {};
 export default Header;
+
+// <GDiv>
+//   <IconButton aria-haspopup="false" color="inherit">
+//     <GithubCircleIcon color={'#fff'} size={32} />
+//   </IconButton>
+// </GDiv>
