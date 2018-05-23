@@ -2,7 +2,7 @@
   "name": "aimindex",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ahmedhosny.github.io/aimindex",
+  "homepage": "http://medicalindex.ai",
   "dependencies": {
     "axios": "^0.18.0",
     "dom-helpers": "^3.3.1",

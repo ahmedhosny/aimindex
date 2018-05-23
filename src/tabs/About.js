@@ -261,6 +261,14 @@ class About extends Component {
                     <Grid item xs={12} sm={12} md={4}>
                       <GImg src={'img/dfci.png'} />
                     </Grid>
+                    <Grid item md={2} />
+                    <Grid item xs={12} sm={12} md={4}>
+                      <GImg src={'img/nih.png'} />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={4}>
+                      <GImg src={'img/nci.png'} />
+                    </Grid>
+                    <Grid item md={2} />
                   </GGrid>
                 </div>
               }
