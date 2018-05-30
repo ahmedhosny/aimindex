@@ -68,6 +68,22 @@ export function prepareDataForHisto2d(listToPushTo, listA, listB) {
 }
 
 /**
+ * Creates pairs from non-zero items to draw the stacked bar plot
+ * @param  {array} listToPushTo array to push to
+ * @param  {array} listA        Array of x axis - can have multiple entries
+ * @param  {array} listB        Array of y axis - can have multiple entries
+ */
+export function prepareDataForStackedBar(listToPushTo, listA, listB) {
+  listA.map((a, idx) => {
+    listB.map((b, idx) => {
+      if ((a.toString() !== '0') & (b.toString() !== '0')) {
+        listToPushTo.push({x: a, y: b});
+      }
+    });
+  });
+}
+
+/**
  * For data sharing only - pushes one or more of the four labels
  * @param  {array} listOfEntries [data_public, data_upon_request, data_shared]
  * @return {array} miniList a small lsit to be concatenated to the bigger list
@@ -75,9 +91,10 @@ export function prepareDataForHisto2d(listToPushTo, listA, listB) {
 export function prepareDataSharing(listOfEntries) {
   let miniList = [];
   // if none of the above
-  _.max(listOfEntries) === 0 ? miniList.push('data unavailable') : null;
+  _.max(listOfEntries) === 0 ? miniList.push('data private') : null;
   ifOne(miniList, listOfEntries[0], 'used public data');
-  ifOne(miniList, listOfEntries[1], 'data made available upon request');
+  // ifOne(miniList, listOfEntries[1], 'data made available upon request');
+  ifOne(miniList, listOfEntries[1], 'used public data');
   ifOne(miniList, listOfEntries[2], 'data made public');
   return miniList;
 }

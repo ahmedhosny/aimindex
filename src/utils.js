@@ -1,9 +1,10 @@
 import {
   processText,
   push,
-  prepareDataForHeatmaps,
+  // prepareDataForHeatmaps,
   prepareDataSharing,
   prepareDataForHisto2d,
+  prepareDataForStackedBar,
 } from './funcs';
 import _ from 'lodash';
 
@@ -52,31 +53,12 @@ export function formatData(jsonList) {
     transferLearning: [],
     crossValidation: [],
     // reproducibility - doubles
-    // // first time use of histo 2d (simpler than heat)
-    countries_codeSharing: {
-      x: [],
-      y: [],
-    },
-    countries_dataSharing: {
-      x: [],
-      y: [],
-    },
-    impactFactors_codeSharing: {
-      x: [],
-      y: [],
-    },
-    impactFactors_dataSharing: {
-      x: [],
-      y: [],
-    },
-    domains_transferLearning: {
-      x: [],
-      y: [],
-    },
-    domains_crossValidation: {
-      x: [],
-      y: [],
-    },
+    countries_codeSharing: [],
+    countries_dataSharing: [],
+    impactFactors_codeSharing: [],
+    impactFactors_dataSharing: [],
+    domains_transferLearning: [],
+    domains_crossValidation: [],
   };
   jsonList.map((row, index) => {
     //
@@ -123,7 +105,7 @@ export function formatData(jsonList) {
     ]);
     data.dataSharing = [...data.dataSharing, ...dataSharingMiniList];
     data.codeSharing.push(
-      row.code_public == 1 ? 'code made public' : 'code unavailable'
+      row.code_public == 1 ? 'code made public' : 'code private'
     );
     data.codeBasis.push(
       row.based_on_1_name == 0 ? 'no code basis' : row.based_on_1_name
@@ -145,32 +127,32 @@ export function formatData(jsonList) {
     //
     // reproducibility - doubles
     //
-    prepareDataForHisto2d(
+    prepareDataForStackedBar(
       data.countries_codeSharing,
       [row.country_1, row.country_2, row.country_3],
-      [row.code_public == 1 ? 'code made public' : 'code unavailable']
+      [row.code_public == 1 ? 'code made public' : 'code private']
     );
-    prepareDataForHisto2d(
+    prepareDataForStackedBar(
       data.countries_dataSharing,
       [row.country_1, row.country_2, row.country_3],
       dataSharingMiniList
     );
-    prepareDataForHisto2d(
+    prepareDataForStackedBar(
       data.impactFactors_codeSharing,
       [row.impact_factor],
-      [row.code_public == 1 ? 'code made public' : 'code unavailable']
+      [row.code_public == 1 ? 'code made public' : 'code private']
     );
-    prepareDataForHisto2d(
+    prepareDataForStackedBar(
       data.impactFactors_dataSharing,
       [row.impact_factor],
       dataSharingMiniList
     );
-    prepareDataForHisto2d(
+    prepareDataForStackedBar(
       data.domains_transferLearning,
       [row.domain],
       [transferLearning]
     );
-    prepareDataForHisto2d(
+    prepareDataForStackedBar(
       data.domains_crossValidation,
       [row.domain],
       [crossValidation]

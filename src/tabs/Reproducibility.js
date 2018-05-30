@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Grid from 'material-ui/Grid';
 import Slide from '../components/Slide';
 import Pie from '../components/Pie';
-import Histo2d from '../components/Histo2d';
 import Loading from '../components/Loading';
+import StackedBar from '../components/StackedBar';
 
 /**
  * The component
@@ -70,9 +70,9 @@ class Reproducibility extends Component {
           />
           <Slide
             plot={
-              <Histo2d
-                xData={data.countries_codeSharing.x}
-                yData={data.countries_codeSharing.y}
+              <StackedBar
+                data={data.countries_codeSharing}
+                keys={['code private', 'code made public']}
                 xAxis={'countries'}
                 yAxis={'code sharing'}
               />
@@ -82,12 +82,13 @@ class Reproducibility extends Component {
           />
           <Slide
             plot={
-              <Histo2d
-                xData={data.impactFactors_codeSharing.x}
-                yData={data.impactFactors_codeSharing.y}
+              <StackedBar
+                data={data.impactFactors_codeSharing}
+                keys={['code private', 'code made public']}
                 xAxis={'impact factors'}
                 yAxis={'code sharing'}
-                autobinx={false}
+                float={true}
+                rotate={false}
               />
             }
             title={'impact factors vs code sharing'}
@@ -103,9 +104,9 @@ class Reproducibility extends Component {
           />
           <Slide
             plot={
-              <Histo2d
-                xData={data.domains_transferLearning.x}
-                yData={data.domains_transferLearning.y}
+              <StackedBar
+                data={data.domains_transferLearning}
+                keys={['end-to-end training', 'transfer learning']}
                 xAxis={'domains'}
                 yAxis={'transfer learning'}
               />
@@ -122,9 +123,9 @@ class Reproducibility extends Component {
           />
           <Slide
             plot={
-              <Histo2d
-                xData={data.countries_dataSharing.x}
-                yData={data.countries_dataSharing.y}
+              <StackedBar
+                data={data.countries_dataSharing}
+                keys={['used public data', 'data private', 'data made public']}
                 xAxis={'countries'}
                 yAxis={'data sharing'}
               />
@@ -132,14 +133,16 @@ class Reproducibility extends Component {
             title={'countries vs data sharing'}
             text={'countries vs data sharing'}
           />
+
           <Slide
             plot={
-              <Histo2d
-                xData={data.impactFactors_dataSharing.x}
-                yData={data.impactFactors_dataSharing.y}
+              <StackedBar
+                data={data.impactFactors_dataSharing}
+                keys={['used public data', 'data private', 'data made public']}
                 xAxis={'impactFactors'}
                 yAxis={'data sharing'}
-                autobinx={false}
+                float={true}
+                rotate={false}
               />
             }
             title={'impactFactors vs data sharing'}
@@ -157,9 +160,9 @@ class Reproducibility extends Component {
           />
           <Slide
             plot={
-              <Histo2d
-                xData={data.domains_crossValidation.x}
-                yData={data.domains_crossValidation.y}
+              <StackedBar
+                data={data.domains_crossValidation}
+                keys={['multiple datasets used', 'cross validation used']}
                 xAxis={'domains'}
                 yAxis={'cross validation'}
               />
