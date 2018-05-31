@@ -5,7 +5,7 @@ import Slide from '../components/Slide';
 import Pie from '../components/Pie';
 import Loading from '../components/Loading';
 import StackedBar from '../components/StackedBar';
-
+import Lorem from 'react-lorem-component';
 /**
  * The component
  * @type {Object}
@@ -54,14 +54,18 @@ class Reproducibility extends Component {
     const codeKeys = ['code private', 'code made public'];
     return ready ? (
       <Grid container spacing={24}>
+        {/* DATA */}
         <Grid item xs={12} sm={12} md={12}>
-          <Slide title={'data'} text={'data'} />
+          <Slide
+            title={'data'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={<Pie data={data.dataSharing} />}
             title={'Data sharing'}
-            text={'Data sharing.'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={
@@ -73,7 +77,7 @@ class Reproducibility extends Component {
               />
             }
             title={'countries vs data sharing'}
-            text={'countries vs data sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
@@ -89,7 +93,7 @@ class Reproducibility extends Component {
               />
             }
             title={'impactFactors vs data sharing'}
-            text={'impactFactors vs data sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={
@@ -102,7 +106,7 @@ class Reproducibility extends Component {
               />
             }
             title={'publishing medium vs data sharing'}
-            text={'publishing medium vs data sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={
@@ -115,11 +119,15 @@ class Reproducibility extends Component {
               />
             }
             title={'Access vs data sharing'}
-            text={'Access vs data sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
         </Grid>
+        {/* CODE */}
         <Grid item xs={12} sm={12} md={12}>
-          <Slide title={'code'} text={'code'} />
+          <Slide
+            title={'code'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
@@ -139,7 +147,7 @@ class Reproducibility extends Component {
               />
             }
             title={'countries vs code sharing'}
-            text={'countries vs code sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
@@ -168,7 +176,7 @@ class Reproducibility extends Component {
               />
             }
             title={'publishing medium vs code sharing'}
-            text={'publishing medium vs code sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={
@@ -181,11 +189,15 @@ class Reproducibility extends Component {
               />
             }
             title={'Access vs code sharing'}
-            text={'Access vs code sharing'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
         </Grid>
+        {/* METHODS */}
         <Grid item xs={12} sm={12} md={12}>
-          <Slide title={'methods'} text={'methods'} />
+          <Slide
+            title={'methods'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
@@ -199,7 +211,7 @@ class Reproducibility extends Component {
           <Slide
             plot={<Pie data={data.crossValidation} />}
             title={'Cross validation'}
-            text={'Cross validation within datasets.'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
@@ -213,7 +225,7 @@ class Reproducibility extends Component {
               />
             }
             title={'domains vs transfer learning'}
-            text={'domains vs transfer learning'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={
@@ -225,7 +237,7 @@ class Reproducibility extends Component {
               />
             }
             title={'domains vs cross validation'}
-            text={'domains vs cross validation'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={<Pie data={data.codeBasis} />}
