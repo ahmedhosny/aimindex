@@ -100,6 +100,22 @@ export function prepareDataSharing(listOfEntries) {
 }
 
 /**
+ * jourConf -
+ * @param  {string} journal    0 or journal name
+ * @param  {string} conference 0 or confeence name
+ * @return {string} journal, conference or preprint
+ */
+export function prepareJourConf(journal, conference) {
+  if (journal.toString() !== '0') {
+    return 'journal';
+  } else if (conference.toString() !== '0') {
+    return 'conference';
+  } else {
+    return 'preprint';
+  }
+}
+
+/**
  * If an entry is 1, push a specific text to a given list
  * @param  {array} listToPushTo array tp push to
  * @param  {number} entry      treat as string

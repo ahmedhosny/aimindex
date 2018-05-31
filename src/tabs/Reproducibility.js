@@ -50,17 +50,78 @@ class Reproducibility extends Component {
       );
     });
     const {ready} = this.state;
+    const dataKeys = ['used public data', 'data private', 'data made public'];
+    const codeKeys = ['code private', 'code made public'];
     return ready ? (
       <Grid container spacing={24}>
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide title={'data'} text={'data'} />
+        </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
-            plot={<Pie data={data.publicPrivate} />}
-            title={'Accessibility'}
-            text={
-              'Paywall vs open-access. Open-access includes journals with\
-         preprints publiched on arxiv.'
-            }
+            plot={<Pie data={data.dataSharing} />}
+            title={'Data sharing'}
+            text={'Data sharing.'}
           />
+          <Slide
+            plot={
+              <StackedBar
+                data={data.countries_dataSharing}
+                keys={dataKeys}
+                xAxis={'countries'}
+                yAxis={'data sharing'}
+              />
+            }
+            title={'countries vs data sharing'}
+            text={'countries vs data sharing'}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <Slide
+            plot={
+              <StackedBar
+                data={data.impactFactors_dataSharing}
+                keys={dataKeys}
+                xAxis={'impactFactors'}
+                yAxis={'data sharing'}
+                float={true}
+                rotate={false}
+              />
+            }
+            title={'impactFactors vs data sharing'}
+            text={'impactFactors vs data sharing'}
+          />
+          <Slide
+            plot={
+              <StackedBar
+                data={data.jourConf_dataSharing}
+                keys={dataKeys}
+                xAxis={'publishing medium'}
+                yAxis={'data sharing'}
+                rotate={false}
+              />
+            }
+            title={'publishing medium vs data sharing'}
+            text={'publishing medium vs data sharing'}
+          />
+          <Slide
+            plot={
+              <StackedBar
+                data={data.publicPrivate_dataSharing}
+                keys={dataKeys}
+                xAxis={'Access'}
+                yAxis={'data sharing'}
+                rotate={false}
+              />
+            }
+            title={'Access vs data sharing'}
+            text={'Access vs data sharing'}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide title={'code'} text={'code'} />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={<Pie data={data.codeSharing} />}
             title={'Code sharing'}
@@ -72,7 +133,7 @@ class Reproducibility extends Component {
             plot={
               <StackedBar
                 data={data.countries_codeSharing}
-                keys={['code private', 'code made public']}
+                keys={codeKeys}
                 xAxis={'countries'}
                 yAxis={'code sharing'}
               />
@@ -80,11 +141,13 @@ class Reproducibility extends Component {
             title={'countries vs code sharing'}
             text={'countries vs code sharing'}
           />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={
               <StackedBar
                 data={data.impactFactors_codeSharing}
-                keys={['code private', 'code made public']}
+                keys={codeKeys}
                 xAxis={'impact factors'}
                 yAxis={'code sharing'}
                 float={true}
@@ -95,6 +158,37 @@ class Reproducibility extends Component {
             text={'impact factors vs code sharing - journals only.'}
           />
           <Slide
+            plot={
+              <StackedBar
+                data={data.jourConf_codeSharing}
+                keys={codeKeys}
+                xAxis={'publishing medium'}
+                yAxis={'code sharing'}
+                rotate={false}
+              />
+            }
+            title={'publishing medium vs code sharing'}
+            text={'publishing medium vs code sharing'}
+          />
+          <Slide
+            plot={
+              <StackedBar
+                data={data.publicPrivate_codeSharing}
+                keys={codeKeys}
+                xAxis={'Access'}
+                yAxis={'code sharing'}
+                rotate={false}
+              />
+            }
+            title={'Access vs code sharing'}
+            text={'Access vs code sharing'}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide title={'methods'} text={'methods'} />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <Slide
             plot={<Pie data={data.transferLearning} />}
             title={'Transfer Learning'}
             text={
@@ -102,6 +196,13 @@ class Reproducibility extends Component {
               sets, is often utilized when dealing with scarce data.'
             }
           />
+          <Slide
+            plot={<Pie data={data.crossValidation} />}
+            title={'Cross validation'}
+            text={'Cross validation within datasets.'}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={
               <StackedBar
@@ -114,50 +215,6 @@ class Reproducibility extends Component {
             title={'domains vs transfer learning'}
             text={'domains vs transfer learning'}
           />
-        </Grid>
-        <Grid item xs={12} sm={12} md={6}>
-          <Slide
-            plot={<Pie data={data.dataSharing} />}
-            title={'Data sharing'}
-            text={'Data sharing.'}
-          />
-          <Slide
-            plot={
-              <StackedBar
-                data={data.countries_dataSharing}
-                keys={['used public data', 'data private', 'data made public']}
-                xAxis={'countries'}
-                yAxis={'data sharing'}
-              />
-            }
-            title={'countries vs data sharing'}
-            text={'countries vs data sharing'}
-          />
-
-          <Slide
-            plot={
-              <StackedBar
-                data={data.impactFactors_dataSharing}
-                keys={['used public data', 'data private', 'data made public']}
-                xAxis={'impactFactors'}
-                yAxis={'data sharing'}
-                float={true}
-                rotate={false}
-              />
-            }
-            title={'impactFactors vs data sharing'}
-            text={'impactFactors vs data sharing'}
-          />
-          <Slide
-            plot={<Pie data={data.codeBasis} />}
-            title={'Code basis'}
-            text={<div>Code basis. Links to these: {codeBasisLinks}</div>}
-          />
-          <Slide
-            plot={<Pie data={data.crossValidation} />}
-            title={'Cross validation'}
-            text={'Cross validation within datasets.'}
-          />
           <Slide
             plot={
               <StackedBar
@@ -169,6 +226,11 @@ class Reproducibility extends Component {
             }
             title={'domains vs cross validation'}
             text={'domains vs cross validation'}
+          />
+          <Slide
+            plot={<Pie data={data.codeBasis} />}
+            title={'Code basis'}
+            text={<div>Code basis. Links to these: {codeBasisLinks}</div>}
           />
         </Grid>
       </Grid>

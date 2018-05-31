@@ -94,6 +94,14 @@ class Stats extends Component {
             title={'Anatomy'}
             text={'Distribution across anatomy.'}
           />
+          <Slide
+            plot={<Pie data={data.publicPrivate} />}
+            title={'Accessibility'}
+            text={
+              'Paywall vs open-access. Open-access includes journals with\
+          preprints publiched on arxiv.'
+            }
+          />
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
