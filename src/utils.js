@@ -33,6 +33,7 @@ export function formatData(jsonList) {
     jourConf: {},
     publicPrivate: [],
     impactFactors: [],
+    tools: [],
     // stats - doubles
     domains_tasks: {
       x: [],
@@ -87,6 +88,7 @@ export function formatData(jsonList) {
     let publicPrivate = row.public == 0 ? 'paywall' : 'open-access';
     data.publicPrivate.push(publicPrivate);
     push(data.impactFactors, [row.impact_factor]);
+    push(data.tools, row.tools); // tools is already a list
     //
     // stats - doubles
     //
@@ -210,5 +212,6 @@ export function formatData(jsonList) {
   //     ? console.log('Error in journal/conference calculation.')
   //     : null;
   // }
+  console.log(data.tools);
   return data;
 }

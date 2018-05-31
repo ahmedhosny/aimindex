@@ -7,6 +7,7 @@ import Histo from '../components/Histo';
 import Choro from '../components/Choro';
 import Loading from '../components/Loading';
 import Histo2d from '../components/Histo2d';
+import Lorem from 'react-lorem-component';
 
 /**
  * The component
@@ -49,6 +50,13 @@ class Stats extends Component {
     const {ready} = this.state;
     return ready ? (
       <Grid container spacing={24}>
+        {/* Sources */}
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide
+            title={'sources'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+        </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
             title={data.count.toString()}
@@ -59,7 +67,7 @@ class Stats extends Component {
               <Histo data={data.years} xAxis={'Years'} yAxis={'Frequency'} />
             }
             title={'Years'}
-            text={'Publication years.'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={<Pie data={data.sources} />}
@@ -68,31 +76,6 @@ class Stats extends Component {
               'Manuscript retrieval sources. Only peer-reviewed studies were\
                  included.'
             }
-          />
-          <Slide
-            plot={<Pie data={data.tasks} />}
-            title={'Tasks'}
-            text={
-              'Tasks preformed. Some studies investigate more than one task.'
-            }
-          />
-          <Slide
-            plot={<Pie data={data.domains} />}
-            title={'Domains'}
-            text={'Medical application areas.'}
-          />
-          <Slide
-            plot={<Pie data={data.architectures} />}
-            title={'Architectures'}
-            text={
-              'Deep learning architectures utilized. Some studies explore\
-                 more than one architecture.'
-            }
-          />
-          <Slide
-            plot={<Pie data={data.anatomy} />}
-            title={'Anatomy'}
-            text={'Distribution across anatomy.'}
           />
           <Slide
             plot={<Pie data={data.publicPrivate} />}
@@ -105,14 +88,9 @@ class Stats extends Component {
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <Slide
-            plot={<Pie data={data.types} />}
-            title={'Types'}
-            text={'Data types.'}
-          />
-          <Slide
             plot={<Pie data={data.jourConf} useCountBy={false} />}
             title={'Journals & Conferences'}
-            text={'Journals & Conferences.'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
           <Slide
             plot={
@@ -126,7 +104,33 @@ class Stats extends Component {
             text={'Distribution of impact factors across journals.'}
           />
           <Slide plot={<Choro data={data.countries} />} title={''} text={''} />
+        </Grid>
 
+        {/* Sources */}
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide
+            title={'applications'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <Slide
+            plot={<Pie data={data.domains} />}
+            title={'Domains'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+          <Slide
+            plot={<Pie data={data.tasks} />}
+            title={'Tasks'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <Slide
+            plot={<Pie data={data.anatomy} />}
+            title={'Anatomy'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
           <Slide
             plot={
               <Histo2d
@@ -138,24 +142,38 @@ class Stats extends Component {
               />
             }
             title={'Domains vs Tasks'}
-            text={'Domains vs Tasks. Some studies explore more than one task.'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+        </Grid>
+
+        {/* methods */}
+        <Grid item xs={12} sm={12} md={12}>
+          <Slide
+            title={'methods'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
+          <Slide
+            plot={<Pie data={data.architectures} />}
+            title={'Architectures'}
+            text={
+              'Deep learning architectures utilized. Some studies explore\
+                 more than one architecture.'
+            }
           />
           <Slide
-            plot={
-              <Histo2d
-                xData={data.domains_architectures.x}
-                yData={data.domains_architectures.y}
-                xAxis={'Domains'}
-                yAxis={'Architectures'}
-                autobinx={false}
-              />
-            }
-            title={'Domains vs Architectures'}
-            text={
-              'Domains vs Architectures. Some studies explore more than one\
-                 Architecture.'
-            }
+            plot={<Pie data={data.types} />}
+            title={'Types'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
+          <Slide
+            plot={<Pie data={data.tools} />}
+            title={'tools'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6}>
           <Slide
             plot={
               <Histo2d
@@ -168,7 +186,20 @@ class Stats extends Component {
               />
             }
             title={'Architectures vs data types'}
-            text={'Architectures vs data types.'}
+            text={<Lorem seed={Math.random()} count={1} />}
+          />
+          <Slide
+            plot={
+              <Histo2d
+                xData={data.domains_architectures.x}
+                yData={data.domains_architectures.y}
+                xAxis={'Domains'}
+                yAxis={'Architectures'}
+                autobinx={false}
+              />
+            }
+            title={'Domains vs Architectures'}
+            text={<Lorem seed={Math.random()} count={1} />}
           />
         </Grid>
       </Grid>
