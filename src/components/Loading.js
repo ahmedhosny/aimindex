@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
-import {CircularProgress} from 'material-ui/Progress';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import theme from '../theme.js';
 
 const GGrid = glamorous(Grid)({
@@ -11,7 +11,7 @@ const GGrid = glamorous(Grid)({
 });
 
 const GCircularProgress = glamorous(CircularProgress)({
-  paddingTop: 100,
+  paddingTop: 0,
 });
 
 /**

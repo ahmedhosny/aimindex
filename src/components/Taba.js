@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Glamorous from 'glamorous';
 import PropTypes from 'prop-types';
-import AppBar from 'material-ui/AppBar';
-import Tabs, {Tab} from 'material-ui/Tabs';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import TabContainer from './TabContainer';
 import theme from '../theme.js';
 import Header from './Header';
@@ -52,7 +53,7 @@ class Taba extends Component {
         <GAppBar>
           <Header />
           <Tabs
-            indicatorColor={theme.orange}
+            indicatorColor={'secondary'}
             centered={false}
             fullWidth={true}
             value={value}

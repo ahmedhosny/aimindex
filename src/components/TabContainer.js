@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Glamorous from 'glamorous';
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 
 /**
  * TabContainer class

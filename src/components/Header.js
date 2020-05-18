@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import glamorous from 'glamorous';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import logo from '../logo.svg';
 import GithubCircleIcon from 'mdi-react/GithubCircleIcon';
 import theme from '../theme.js';

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import glamorous from 'glamorous';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import Spacer from '../components/Spacer';
 import Paragraph from '../components/Paragraph';
 import Link from '../components/Link';
@@ -37,7 +37,8 @@ class About extends Component {
               aimed at tracking, curating, and visualizing data on the
               applications of AI in medicine and health care."
             </Typography>
-            <Paragraph content="Artificial Intelligence (AI) continues to find ample application
+            <Paragraph
+              content="Artificial Intelligence (AI) continues to find ample application
               opportunities in health care systems fed by an ever increasing
               amount of medical data, ranging from x-ray images and DNA
               sequences to text reports and retinal photographs. In addition to
@@ -48,9 +49,11 @@ class About extends Component {
               detection and characterization of anomalies, recent advances in AI
               have enabled machines to automatically recognize complex
               discriminative patterns in data - and provide quantitative, rather
-              than qualitative, assessments." />
+              than qualitative, assessments."
+            />
 
-            <Paragraph content="The Medical AI Index identifies AI applications in radiology,
+            <Paragraph
+              content="The Medical AI Index identifies AI applications in radiology,
                 pathology, genomics, dermatology, and other data-centric medical
                 fields that currently benefit - or are expected to - from AI-based
                 automated decision making systems. Specifically targeted at a
@@ -60,7 +63,8 @@ class About extends Component {
                 researchers, health care professionals, and machine learning
                 scientists, in both academia and industry, to provide the domain
                 knowledge needed to track the impact of AI on the field.
-                " />
+                "
+            />
 
             <Paragraph
               title="Context"
@@ -105,10 +109,10 @@ class About extends Component {
                       domain-specific search parameters.
                     </li>
                     <li>
-                      <Strong>Live Reproducibility Index </Strong>
-                      A live track of reproducibility metrics in the field as it
-                      pertains to the sharing of code implementations and data
-                      used in experiments.
+                      <Strong>Live Reproducibility Index </Strong>A live track
+                      of reproducibility metrics in the field as it pertains to
+                      the sharing of code implementations and data used in
+                      experiments.
                     </li>
                     <li>
                       <Strong>Commentary </Strong>
@@ -282,23 +286,27 @@ class About extends Component {
                   the effort and{' '}
                   <a target="_blank" href="mailto:info@medicalindex.ai">
                     submit feedback
-                  </a>. The effort would not have been possible without
-                  open-source software projects including
+                  </a>
+                  . The effort would not have been possible without open-source
+                  software projects including
                   <Link
                     content="React"
                     url="https://reactjs.org/"
                     space={false}
-                  />,
+                  />
+                  ,
                   <Link
                     content="Glamorous"
                     url="https://glamorous.rocks/"
                     space={false}
-                  />,
+                  />
+                  ,
                   <Link
                     content="Material-UI"
                     url="https://material-ui-next.com/"
                     space={false}
-                  />, and
+                  />
+                  , and
                   <Link content="Plotly" url="https://plot.ly/" />
                   among others.
                 </div>

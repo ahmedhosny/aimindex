@@ -212,6 +212,6 @@ export function formatData(jsonList) {
   //     ? console.log('Error in journal/conference calculation.')
   //     : null;
   // }
-  console.log(data.tools);
+  // console.log(data.tools);
   return data;
 }
